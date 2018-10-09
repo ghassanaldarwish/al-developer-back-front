@@ -40,7 +40,7 @@ function Pricing(props) {
             noWrap
             className={classes.toolbarTitle}
           >
-            AL-Developer
+            <a href="/">AL-Developer</a>
           </Typography>
           <Button>ghassan</Button>
           <Button>Enterprise</Button>
