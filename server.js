@@ -33,6 +33,10 @@ app.use(
   })
 );
 
+app.get("/", (req, res) => {
+  res.send("hello");
+});
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
