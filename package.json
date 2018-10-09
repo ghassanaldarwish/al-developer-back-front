@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "10.6.0",
+    "npm": "6.1.0",
+    "yarn": "1.7.0"
+  },
   "scripts": {
     "client-install": "npm install --prefix client",
     "start": "node server.js",
