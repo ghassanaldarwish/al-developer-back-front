@@ -75,10 +75,7 @@ function Pricing(props) {
           ))}
         </Grid>
         <p style={{ textAlign: "center", padding: "20px 0", margin: "0" }}>
-          &copy; 2018 with{" "}
-          <span role="img" aria-label="love">
-            ❤️
-          </span>
+          &copy; 2018
         </p>
       </footer>
       {/* End footer */}
