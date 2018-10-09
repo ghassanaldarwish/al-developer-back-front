@@ -1,0 +1,57 @@
+import React from "react";
+import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import { withStyles } from "@material-ui/core/styles";
+import "./navigation.css";
+const styles = theme => ({
+  appBar: {
+    backgroundColor: "#2196F3"
+  },
+  Toolbar: {
+    width: "auto",
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
+      width: 900,
+      marginLeft: "auto",
+      marginRight: "auto"
+    }
+  },
+  toolbarTitle: {
+    flex: 1,
+    color: "#fff"
+  }
+});
+
+function Pricing(props) {
+  const { classes } = props;
+
+  return (
+    <div className="Navigation">
+      <CssBaseline />
+      <AppBar position="fixed" color="primary" className={classes.appBar}>
+        <Toolbar className={classes.Toolbar}>
+          <Typography
+            variant="h6"
+            color="inherit"
+            noWrap
+            className={classes.toolbarTitle}
+          >
+            AL-Developer
+          </Typography>
+          <Button>ghassan</Button>
+          <Button>Enterprise</Button>
+          <Button>Support</Button>
+          <Button variant="contained" color="secondary">
+            <a href="/api/user/auth/google">Login with google+</a>
+          </Button>
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
+}
+
+export default withStyles(styles)(Pricing);
