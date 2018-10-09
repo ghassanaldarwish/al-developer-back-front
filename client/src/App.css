@@ -37,3 +37,11 @@ img {
 .form-control::placeholder {
   color: #bbb !important;
 }
+.switchWrapper {
+  position: relative;
+}
+
+.switchWrapper > div {
+  width: 100%;
+  top: 0;
+}

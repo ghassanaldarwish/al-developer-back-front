@@ -5,6 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 import "./navigation.css";
 const styles = theme => ({
   appBar: {
@@ -44,7 +45,9 @@ function Pricing(props) {
           </Typography>
           <Button>ghassan</Button>
           <Button>Enterprise</Button>
-          <Button>Support</Button>
+          <Button>
+            <Link to="/profile">profile</Link>
+          </Button>
           <Button variant="contained" color="secondary">
             <a href="/api/user/auth/google">Login with google+</a>
           </Button>

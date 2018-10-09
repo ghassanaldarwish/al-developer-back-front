@@ -24,7 +24,7 @@ function MediaCard(props) {
             <div className="row">
               <div className="col-md-12 text-center">
                 <h1 className="display-3 mb-4">AL-Developer</h1>
-                <p className="lead">Get help from other developer</p>
+                <p className="lead">Get help from other developers</p>
               </div>
             </div>
           </div>
