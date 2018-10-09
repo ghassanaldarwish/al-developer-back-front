@@ -5,6 +5,7 @@ const passport = require("passport");
 const user = require("./routes/api/user");
 const profile = require("./routes/api/profile");
 const post = require("./routes/api/post");
+const path = require("path");
 // just call the users model from mongodb
 // this must be first befor passport or ERROR_______
 require("./models/Users");
@@ -33,9 +34,12 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  res.send("hello");
-});
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 app.use(passport.initialize());
 app.use(passport.session());
