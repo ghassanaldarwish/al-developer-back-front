@@ -37,11 +37,27 @@ img {
 .form-control::placeholder {
   color: #bbb !important;
 }
-.switchWrapper {
-  position: relative;
+.page {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
 }
 
-.switchWrapper > div {
-  width: 100%;
-  top: 0;
+.fade-enter,
+.fade-appear {
+  opacity: 0.01;
+  z-index: 1;
+}
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 150ms ease-in;
 }
