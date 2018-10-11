@@ -5,10 +5,17 @@ import Homepage from "./containers/Homepage/Homepage";
 import Profile from "./containers/Profile/Profile";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import axios from "axios";
 
 import "./App.css";
 
 class App extends Component {
+  componentDidMount() {
+    axios
+      .get("/api/user/current_user")
+
+      .then(res => console.log(res.data));
+  }
   render() {
     return (
       <div>

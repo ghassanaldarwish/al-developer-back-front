@@ -12,6 +12,7 @@ const User = require("../../models/Users");
 //privet
 
 router.get("/", login, async (req, res) => {
+  console.log("jjjjjj", req.user);
   try {
     const errors = {};
     const profile = await Profile.findOne({ user: req.user.id }).populate(

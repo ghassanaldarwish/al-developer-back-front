@@ -44,12 +44,21 @@ function Pricing(props) {
             <a href="/">AL-Developer</a>
           </Typography>
           <Button>ghassan</Button>
-          <Button>Enterprise</Button>
+          <Button>
+            {" "}
+            <a href="http://localhost:5000/api/user/current_user">user</a>
+          </Button>
           <Button>
             <Link to="/profile">profile</Link>
           </Button>
+
           <Button variant="contained" color="secondary">
-            <a href="/api/user/auth/google">Login with google+</a>
+            <a href="http://localhost:5000/api/user/auth/google">
+              Login with google+
+            </a>
+          </Button>
+          <Button variant="contained" color="secondary">
+            <a href="http://localhost:5000/api/user/logout">logout</a>
           </Button>
         </Toolbar>
       </AppBar>
