@@ -26,7 +26,7 @@ router.get(
         errors.noprofile = "This user have not profile";
         res.status(404).json(errors);
       }
-      res.json(profile);
+      res.send(profile);
     } catch (error) {
       res.status(404).json(error);
     }
