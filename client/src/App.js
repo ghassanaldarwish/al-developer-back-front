@@ -12,13 +12,13 @@ import "./App.css";
 class App extends Component {
   componentDidMount() {
     axios
-      .get("/api/user/current_user")
-
-      .then(res => console.log("current_user App", res.data));
-    axios
       .get("/api/profile")
 
       .then(res => console.log("profile App", res.data));
+    axios
+      .get("/api/user/current_user")
+
+      .then(res => console.log("current_user App", res.data));
   }
   render() {
     return (
