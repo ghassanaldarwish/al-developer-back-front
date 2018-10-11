@@ -46,19 +46,17 @@ function Pricing(props) {
           <Button>ghassan</Button>
           <Button>
             {" "}
-            <a href="http://localhost:5000/api/user/current_user">user</a>
+            <a href="/api/user/current_user">user</a>
           </Button>
           <Button>
             <Link to="/profile">profile</Link>
           </Button>
 
           <Button variant="contained" color="secondary">
-            <a href="http://localhost:5000/api/user/auth/google">
-              Login with google+
-            </a>
+            <a href="/api/user/auth/google">Login with google+</a>
           </Button>
           <Button variant="contained" color="secondary">
-            <a href="http://localhost:5000/api/user/logout">logout</a>
+            <a href="/api/user/logout">logout</a>
           </Button>
         </Toolbar>
       </AppBar>
