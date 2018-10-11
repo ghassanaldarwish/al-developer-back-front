@@ -10,16 +10,16 @@ import axios from "axios";
 import "./App.css";
 
 class App extends Component {
-  componentDidMount() {
-    axios
-      .get("/api/profile")
-
-      .then(res => console.log("profile App", res.data));
+  componentWillMount() {
     axios
       .get("/api/user/current_user")
 
       .then(res => console.log("current_user App", res.data));
   }
+  componentDidMount() {
+    axios.get("/api/profile").then(res => console.log("profile App", res.data));
+  }
+
   render() {
     return (
       <div>
