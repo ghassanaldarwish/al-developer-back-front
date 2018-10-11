@@ -15,7 +15,7 @@ router.get("/", login, async (req, res) => {
   console.log("jjjjjj", req.user);
   try {
     const errors = {};
-    const profile = await Profile.findOne({ user: req.user.id }).populate(
+    const profile = await Profile.findOne({ user: req.user._id }).populate(
       "user",
       ["name", "avatar"]
     );
