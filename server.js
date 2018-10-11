@@ -8,6 +8,7 @@ const post = require("./routes/api/post");
 const path = require("path");
 // just call the users model from mongodb
 // this must be first befor passport or ERROR_______
+
 require("./models/Users");
 require("./models/Profiles");
 // const cors = require("cors");

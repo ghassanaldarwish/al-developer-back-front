@@ -1,5 +1,5 @@
 const express = require("express");
-const passport = require("passport");
+
 const router = express.Router();
 const validateProfileInput = require("../../validation/profile");
 const validateExperienceInput = require("../../validation/experience");
@@ -11,27 +11,23 @@ const User = require("../../models/Users");
 
 //privet
 
-router.get(
-  "/",
-  passport.authenticate("google", { session: false }),
-  async (req, res) => {
-    console.log("jjjjjj", req.user.id);
-    try {
-      const errors = {};
-      const profile = await Profile.findOne({ user: req.user.id }).populate(
-        "user",
-        ["name", "avatar"]
-      );
-      if (!profile) {
-        errors.noprofile = "This user have not profile";
-        res.status(404).json(errors);
-      }
-      res.send(profile);
-    } catch (error) {
-      res.status(404).json(error);
+router.get("/", login, async (req, res) => {
+  console.log("jjjjjj", req.user.id);
+  try {
+    const errors = {};
+    const profile = await Profile.findOne({ user: req.user.id }).populate(
+      "user",
+      ["name", "avatar"]
+    );
+    if (!profile) {
+      errors.noprofile = "This user have not profile";
+      res.status(404).json(errors);
     }
+    res.send(profile);
+  } catch (error) {
+    res.status(404).json(error);
   }
-);
+});
 
 //public
 router.get("/handle/:handle", async (req, res) => {
