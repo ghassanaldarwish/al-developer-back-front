@@ -1,28 +1,17 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Navigation from "./containers/Navigation/Navigation";
 import Footer from "./containers/Footer/Footer";
 import Homepage from "./containers/Homepage/Homepage";
 import Profile from "./containers/Profile/Profile";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import axios from "axios";
 
 import "./App.css";
 
 class App extends Component {
-  componentWillMount() {
-    axios
-      .get("/api/user/current_user")
-
-      .then(res => console.log("current_user App", res.data));
-  }
-  componentDidMount() {
-    axios.get("/api/profile").then(res => console.log("profile App", res.data));
-  }
-
   render() {
     return (
-      <div>
+      <Fragment>
         <Navigation />
         <Route
           render={({ location }) => (
@@ -39,7 +28,7 @@ class App extends Component {
         />
 
         <Footer />
-      </div>
+      </Fragment>
     );
   }
 }
