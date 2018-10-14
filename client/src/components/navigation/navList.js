@@ -6,10 +6,8 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import HomeIcon from "@material-ui/icons/Home";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import PeopleIcon from "@material-ui/icons/People";
-import BarChartIcon from "@material-ui/icons/BarChart";
-import LogoutIcon from "@material-ui/icons/ArrowForwardIos";
-import AssignmentIcon from "@material-ui/icons/Assignment";
+import CreatePost from "@material-ui/icons/Create";
+
 import { Link } from "react-router-dom";
 
 export const mainListItems = (
@@ -18,6 +16,14 @@ export const mainListItems = (
       <ListItem button>
         <ListItemIcon>
           <HomeIcon />
+        </ListItemIcon>
+        <ListItemText primary="Home" />
+      </ListItem>
+    </Link>
+    <Link to="/dashboard">
+      <ListItem button>
+        <ListItemIcon>
+          <DashboardIcon />
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItem>
@@ -32,20 +38,15 @@ export const mainListItems = (
     </Link>
     <ListItem button>
       <ListItemIcon>
-        <PeopleIcon />
+        <CreatePost />
       </ListItemIcon>
-      <ListItemText primary="Customers" />
+      <ListItemText primary="Create Post" />
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Reports" />
-    </ListItem>
+
     <a href="/api/user/logout">
       <ListItem button>
         <ListItemIcon>
-          <LogoutIcon />
+          <i class="fas fa-sign-out-alt fa-lg" />
         </ListItemIcon>
         <ListItemText primary="Logout" />
       </ListItem>
@@ -55,24 +56,18 @@ export const mainListItems = (
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader inset>Saved reports</ListSubheader>
+    <ListSubheader inset>Sosiale Media</ListSubheader>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <i className="fab fa-facebook-square fa-lg" />
       </ListItemIcon>
-      <ListItemText primary="Current month" />
+      <ListItemText primary="Facebook" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <i className="fab fa-github fa-lg" />
       </ListItemIcon>
-      <ListItemText primary="Last quarter" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
+      <ListItemText primary="Github" />
     </ListItem>
   </div>
 );
