@@ -158,8 +158,9 @@ class Dashboard extends React.Component {
                 <Avatar
                   alt="Remy Sharp"
                   src={
-                    this.props.avatar ||
-                    "https://radio-7.net/wp-content/plugins/wp-first-letter-avatar/images/default/256/mystery.png"
+                    this.props.user
+                      ? this.props.user.avatar
+                      : "https://radio-7.net/wp-content/plugins/wp-first-letter-avatar/images/default/256/mystery.png"
                   }
                   className={classes.avatar}
                 />

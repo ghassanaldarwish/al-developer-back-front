@@ -9,9 +9,7 @@ class navigation extends Component {
   render() {
     return (
       <div className="Navigation">
-        <Navigation avatar={this.props.avatar}>
-          {this.props.children}
-        </Navigation>
+        <Navigation user={this.props.user}>{this.props.children}</Navigation>
       </div>
     );
   }
@@ -19,7 +17,7 @@ class navigation extends Component {
 
 const mapStateToProps = state => {
   return {
-    avatar: state.auth.avatar
+    user: state.auth
   };
 };
 export default connect(mapStateToProps)(navigation);

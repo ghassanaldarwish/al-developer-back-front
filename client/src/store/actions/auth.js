@@ -9,7 +9,7 @@ export const authFild = error => {
 };
 
 export const onAuth = () => async dispatch => {
-  const res = await axios.get("/api/user/current_user");
+  const res = await axios.get("http://localhost:5000/api/user/current_user");
 
   dispatch({ type: actionType.FETCH_USER, payload: res.data });
 };
