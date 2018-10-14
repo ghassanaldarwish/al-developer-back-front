@@ -157,7 +157,10 @@ class Dashboard extends React.Component {
               <div className={classes.row}>
                 <Avatar
                   alt="Remy Sharp"
-                  src="https://i.pinimg.com/236x/6a/00/fb/6a00fb07b7f37a3ea1040b18a1d3c93b--l-death-note-hottest-anime.jpg"
+                  src={
+                    this.props.avatar ||
+                    "https://radio-7.net/wp-content/plugins/wp-first-letter-avatar/images/default/256/mystery.png"
+                  }
                   className={classes.avatar}
                 />
               </div>
