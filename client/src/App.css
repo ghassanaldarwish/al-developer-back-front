@@ -1,6 +1,11 @@
 img {
   width: 100%;
 }
+a,
+a:hover {
+  color: white;
+  text-decoration: none;
+}
 
 .landing {
   position: relative;

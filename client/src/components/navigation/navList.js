@@ -8,7 +8,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PeopleIcon from "@material-ui/icons/People";
 import BarChartIcon from "@material-ui/icons/BarChart";
-import LayersIcon from "@material-ui/icons/Layers";
+import LogoutIcon from "@material-ui/icons/ArrowForwardIos";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import { Link } from "react-router-dom";
 
@@ -42,12 +42,14 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Reports" />
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <LayersIcon />
-      </ListItemIcon>
-      <ListItemText primary="Integrations" />
-    </ListItem>
+    <a href="/api/user/logout">
+      <ListItem button>
+        <ListItemIcon>
+          <LogoutIcon />
+        </ListItemIcon>
+        <ListItemText primary="Logout" />
+      </ListItem>
+    </a>
   </div>
 );
 

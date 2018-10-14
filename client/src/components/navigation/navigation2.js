@@ -5,6 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
@@ -154,17 +155,23 @@ class Dashboard extends React.Component {
               >
                 AL-Developer
               </Typography>
-              <div className={classes.row}>
-                <Avatar
-                  alt="Remy Sharp"
-                  src={
-                    this.props.user
-                      ? this.props.user.avatar
-                      : "https://radio-7.net/wp-content/plugins/wp-first-letter-avatar/images/default/256/mystery.png"
-                  }
-                  className={classes.avatar}
-                />
-              </div>
+              {this.props.user ? (
+                <div className={classes.row}>
+                  <Avatar
+                    alt="Remy Sharp"
+                    src={
+                      this.props.user
+                        ? this.props.user.avatar
+                        : "https://radio-7.net/wp-content/plugins/wp-first-letter-avatar/images/default/256/mystery.png"
+                    }
+                    className={classes.avatar}
+                  />
+                </div>
+              ) : (
+                <Button variant="contained" color="secondary">
+                  <a href="/api/user/auth/google">Login with google+</a>
+                </Button>
+              )}
               {/* <IconButton color="inherit">
                 <Badge badgeContent={4} color="secondary">
                   <NotificationsIcon />
