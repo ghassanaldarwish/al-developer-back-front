@@ -1,7 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 
-import "./layout.css";
+import "./Layout.css";
 const styles = theme => ({
   layout: {
     width: "auto",
