@@ -30,7 +30,7 @@ class dashboard extends Component {
             Dashboard
           </Typography>
           <Typography variant="h5" gutterBottom>
-            Welcome: {this.props.profile.name}
+            Welcome: {this.props.auth.name}
           </Typography>
           <Typography variant="subheading" gutterBottom>
             you have not yet create your profile please add some info !
