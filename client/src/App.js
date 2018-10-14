@@ -12,22 +12,28 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Navigation />
-        <Route
-          render={({ location }) => (
-            <TransitionGroup>
-              <CSSTransition key={location.key} timeout={450} classNames="fade">
-                <Switch location={location}>
-                  <Route path="/" exact component={Homepage} />
-                  <Route path="/profile" exact component={Profile} />
-                  <Redirect to="/" />
-                </Switch>
-              </CSSTransition>
-            </TransitionGroup>
-          )}
-        />
-
-        <Footer />
+        <Navigation>
+          <Route
+            render={({ location }) => (
+              <TransitionGroup>
+                <CSSTransition
+                  key={location.key}
+                  timeout={450}
+                  classNames="fade"
+                >
+                  <Fragment>
+                    <Switch location={location}>
+                      <Route path="/" exact component={Homepage} />
+                      <Route path="/profile" exact component={Profile} />
+                      <Redirect to="/" />
+                    </Switch>
+                    <Footer />
+                  </Fragment>
+                </CSSTransition>
+              </TransitionGroup>
+            )}
+          />
+        </Navigation>
       </Fragment>
     );
   }
