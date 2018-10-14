@@ -4,6 +4,7 @@ import Footer from "./containers/Footer/Footer";
 import Homepage from "./containers/Homepage/Homepage";
 import Profile from "./containers/Profile/Profile";
 import Post from "./containers/Post/Post";
+import CreateProfile from "./containers/CreateProfile/CreateProfile";
 import Dashboard from "./containers/Dashboard/Dashboard";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
@@ -30,6 +31,12 @@ class App extends Component {
 
                       <Route path="/profile" exact component={Profile} />
                       <Route path="/post" exact component={Post} />
+                      <Route
+                        path="/create-profile"
+                        exact
+                        component={CreateProfile}
+                      />
+
                       <Redirect to="/" />
                     </Switch>
                     <Footer />

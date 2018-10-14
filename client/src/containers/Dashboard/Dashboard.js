@@ -29,6 +29,12 @@ class dashboard extends Component {
           <Typography component="h2" variant="display3" gutterBottom>
             Dashboard
           </Typography>
+          <Typography variant="h5" gutterBottom>
+            Welcome: {this.props.profile.name}
+          </Typography>
+          <Typography variant="subheading" gutterBottom>
+            you have not yet create your profile please add some info !
+          </Typography>
           <Dashboard profile={this.props.profile} auth={this.props.auth} />
         </main>
       </div>

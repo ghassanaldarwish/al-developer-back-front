@@ -157,6 +157,9 @@ class Dashboard extends React.Component {
               </Typography>
               {this.props.user ? (
                 <div className={classes.row}>
+                  <span style={{ lineHeight: "3.2" }}>
+                    {this.props.user.name}
+                  </span>
                   <Avatar
                     alt="Remy Sharp"
                     src={
@@ -166,9 +169,6 @@ class Dashboard extends React.Component {
                     }
                     className={classes.avatar}
                   />
-                  <span style={{ lineHeight: "3.2" }}>
-                    {this.props.user.name}
-                  </span>
                 </div>
               ) : (
                 <Button variant="contained" color="secondary">
