@@ -3,6 +3,7 @@ import Navigation from "./containers/Navigation/Navigation";
 import Footer from "./containers/Footer/Footer";
 import Homepage from "./containers/Homepage/Homepage";
 import Profile from "./containers/Profile/Profile";
+import Post from "./containers/Post/Post";
 import Dashboard from "./containers/Dashboard/Dashboard";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
@@ -28,6 +29,7 @@ class App extends Component {
                       <Route path="/dashboard" exact component={Dashboard} />
 
                       <Route path="/profile" exact component={Profile} />
+                      <Route path="/post" exact component={Post} />
                       <Redirect to="/" />
                     </Switch>
                     <Footer />

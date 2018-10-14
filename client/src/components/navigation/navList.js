@@ -36,12 +36,14 @@ export const mainListItems = (
         <ListItemText primary="Profile" />
       </ListItem>
     </Link>
-    <ListItem button>
-      <ListItemIcon>
-        <CreatePost />
-      </ListItemIcon>
-      <ListItemText primary="Create Post" />
-    </ListItem>
+    <Link to="/post">
+      <ListItem button>
+        <ListItemIcon>
+          <CreatePost />
+        </ListItemIcon>
+        <ListItemText primary="Create Post" />
+      </ListItem>
+    </Link>
 
     <a href="/api/user/logout">
       <ListItem button>
