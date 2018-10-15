@@ -16,7 +16,11 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
 import Avatar from "@material-ui/core/Avatar";
-import { mainListItems, secondaryListItems } from "./navList";
+import {
+  mainListItems,
+  mainListItemsAuth,
+  secondaryListItems
+} from "./navList";
 
 const drawerWidth = 240;
 
@@ -157,7 +161,7 @@ class Dashboard extends React.Component {
               </Typography>
               {this.props.user ? (
                 <div className={classes.row}>
-                  <span style={{ lineHeight: "3.2" }}>
+                  <span style={{ lineHeight: "3.5" }}>
                     {this.props.user.name}
                   </span>
                   <Avatar
@@ -198,7 +202,12 @@ class Dashboard extends React.Component {
               </IconButton>
             </div>
             <Divider />
-            <List>{mainListItems}</List>
+            {this.props.user ? (
+              <List>{mainListItemsAuth}</List>
+            ) : (
+              <List>{mainListItems}</List>
+            )}
+
             <Divider />
             <List>{secondaryListItems}</List>
           </Drawer>

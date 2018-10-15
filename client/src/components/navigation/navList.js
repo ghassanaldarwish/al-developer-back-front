@@ -20,6 +20,19 @@ export const mainListItems = (
         <ListItemText primary="Home" />
       </ListItem>
     </Link>
+  </div>
+);
+
+export const mainListItemsAuth = (
+  <div>
+    <Link to="/">
+      <ListItem button>
+        <ListItemIcon>
+          <HomeIcon />
+        </ListItemIcon>
+        <ListItemText primary="Home" />
+      </ListItem>
+    </Link>
     <Link to="/dashboard">
       <ListItem button>
         <ListItemIcon>
