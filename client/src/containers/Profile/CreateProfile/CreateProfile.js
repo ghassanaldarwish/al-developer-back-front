@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import CreateProfile from "../../components/createProfile/createProfile";
-
+import CreateProfile from "../../../components/profile/createProfile/createProfile";
+import { connect } from "react-redux";
+import * as actions from "../../../store/actions";
 import { withStyles } from "@material-ui/core/styles";
-
+import { withRouter } from "react-router-dom";
 const styles = theme => ({
   layout: {
     width: "auto",
@@ -17,8 +18,15 @@ const styles = theme => ({
 });
 
 class createProfile extends Component {
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.errors) {
+  //     this.setState({ errors: nextProps.errors });
+  //   }
+  // }
+
   render() {
     const { classes } = this.props;
+
     return (
       <div className="Layout">
         <main className={classes.layout}>
@@ -29,4 +37,12 @@ class createProfile extends Component {
   }
 }
 
-export default withStyles(styles)(createProfile);
+const mapStateToProps = state => ({
+  profile: state.profile,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  actions
+)(withRouter(withStyles(styles)(createProfile)));

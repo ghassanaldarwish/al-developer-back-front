@@ -4,7 +4,7 @@ import Footer from "./containers/Footer/Footer";
 import Homepage from "./containers/Homepage/Homepage";
 import Profile from "./containers/Profile/Profile";
 import Post from "./containers/Post/Post";
-import CreateProfile from "./containers/CreateProfile/CreateProfile";
+
 import Dashboard from "./containers/Dashboard/Dashboard";
 import PrivateRoute from "./containers/PrivateRoute/PrivateRoute";
 import { Route, Switch, Redirect } from "react-router-dom";
@@ -34,12 +34,11 @@ class App extends Component {
                         component={Dashboard}
                       />
 
-                      <PrivateRoute path="/profile" exact component={Profile} />
                       <PrivateRoute path="/post" exact component={Post} />
                       <PrivateRoute
                         path="/create-profile"
                         exact
-                        component={CreateProfile}
+                        component={Profile}
                       />
 
                       <Redirect to="/" />

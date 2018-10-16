@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Navigation from "../../components/navigation/navigation2";
+import Navigation from "../../components/navigation/navigation";
 // import axios from "axios";
 // import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
