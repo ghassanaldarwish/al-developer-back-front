@@ -11,4 +11,8 @@ class profile extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  profile: state.profile
+});
+
 export default profile;

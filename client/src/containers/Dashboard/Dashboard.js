@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import Typography from "@material-ui/core/Typography";
 import * as actions from "../../store/actions";
@@ -21,6 +21,13 @@ class dashboard extends Component {
   componentDidMount() {
     this.props.onProfile();
   }
+
+  displayHandlerSwitch = () => (
+    <Fragment>
+      <Dashboard profile={this.props.profile} auth={this.props.auth} />
+    </Fragment>
+  );
+
   render() {
     const { classes } = this.props;
     return (
@@ -29,13 +36,8 @@ class dashboard extends Component {
           <Typography component="h2" variant="display3" gutterBottom>
             Dashboard
           </Typography>
-          <Typography variant="h5" gutterBottom>
-            Welcome: {this.props.auth.name}
-          </Typography>
-          <Typography variant="subheading" gutterBottom>
-            you have not yet create your profile please add some info !
-          </Typography>
-          <Dashboard profile={this.props.profile} auth={this.props.auth} />
+
+          {this.displayHandlerSwitch()}
         </main>
       </div>
     );

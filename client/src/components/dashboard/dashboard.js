@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Button from "@material-ui/core/Button";
 import AddIcon from "@material-ui/icons/Add";
 import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import Typography from "@material-ui/core/Typography";
 import Spinner from "../UI/Spinner/Spinner";
 
 const styles = theme => ({
@@ -16,20 +17,35 @@ const dashboard = props => {
   if (props.profile.profile === null || props.profile.loading) {
     dashboardData = <Spinner />;
   } else {
-    if (Object.keys(props.profile.profile) > 0) {
-      dashboardData = <p>your profile</p>;
+    if (Object.keys(props.profile.profile).length > 0) {
+      dashboardData = (
+        <Fragment>
+          <Typography variant="h5" gutterBottom>
+            Welcome: {props.auth.name}
+          </Typography>
+          <p>Display profile</p>
+        </Fragment>
+      );
     } else {
       dashboardData = (
-        <Link to="/create-profile">
-          <Button
-            variant="fab"
-            color="primary"
-            aria-label="Add"
-            className={classes.button}
-          >
-            <AddIcon />
-          </Button>
-        </Link>
+        <Fragment>
+          <Typography variant="h5" gutterBottom>
+            Welcome: {props.auth.name}
+          </Typography>
+          <Typography variant="subheading" gutterBottom>
+            you have not yet create your profile please add some info !
+          </Typography>
+          <Link to="/create-profile">
+            <Button
+              variant="fab"
+              color="primary"
+              aria-label="Add"
+              className={classes.button}
+            >
+              <AddIcon />
+            </Button>
+          </Link>
+        </Fragment>
       );
     }
   }
