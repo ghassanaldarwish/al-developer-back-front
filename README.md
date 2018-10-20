@@ -10,7 +10,7 @@
 
 ## See it live
 
-[burger-builder live on heroku](https://al-developer.herokuapp.com/)
+[MERN al-developer-back-front live on heroku](https://al-developer.herokuapp.com/)
 
 ## Quick Start
 
