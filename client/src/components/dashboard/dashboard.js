@@ -28,7 +28,7 @@ class dashboard extends React.Component {
               Welcome: {this.props.auth.name}
             </Typography>
             <ProfileActions />
-            <DisplayProfile />
+            <DisplayProfile profile={this.props.profile.profile} />
 
             <div style={{ marginBottom: "60px" }}>
               <button
