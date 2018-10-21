@@ -112,6 +112,7 @@ class experience extends React.Component {
                     name="to"
                     value={this.state.to}
                     onChange={this.onChange}
+                    disabled={this.state.disabled ? "disabled" : ""}
                   />
                 </div>
                 <div class="form-check mb-4">
