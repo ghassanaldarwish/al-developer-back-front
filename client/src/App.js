@@ -4,6 +4,9 @@ import Footer from "./containers/Footer/Footer";
 import Homepage from "./containers/Homepage/Homepage";
 import Profile from "./containers/Profile/Profile";
 import Post from "./containers/Post/Post";
+import EditPprofile from "./components/editProfile/editProfile";
+import Experience from "./components/experience/experience";
+import Education from "./components/education/education";
 
 import Dashboard from "./containers/Dashboard/Dashboard";
 import PrivateRoute from "./containers/PrivateRoute/PrivateRoute";
@@ -39,6 +42,21 @@ class App extends Component {
                         path="/create-profile"
                         exact
                         component={Profile}
+                      />
+                      <PrivateRoute
+                        path="/edit-profile"
+                        exact
+                        component={EditPprofile}
+                      />
+                      <PrivateRoute
+                        path="/add-experience"
+                        exact
+                        component={Experience}
+                      />
+                      <PrivateRoute
+                        path="/add-education"
+                        exact
+                        component={Education}
                       />
 
                       <Redirect to="/" />
