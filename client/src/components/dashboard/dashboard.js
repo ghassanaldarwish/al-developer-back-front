@@ -5,6 +5,8 @@ import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Spinner from "../UI/Spinner/Spinner";
+import DisplayProfile from "./displayProfile/displayProfile";
+import ProfileActions from "./profileActions/profileActions";
 
 const styles = theme => ({
   button: {
@@ -23,7 +25,8 @@ const dashboard = props => {
           <Typography variant="h5" gutterBottom>
             Welcome: {props.auth.name}
           </Typography>
-          <p>Display profile</p>
+          <ProfileActions />
+          <DisplayProfile />
         </Fragment>
       );
     } else {
