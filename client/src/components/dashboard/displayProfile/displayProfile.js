@@ -3,9 +3,9 @@ import React, { Fragment } from "react";
 function displayProfile(props) {
   return (
     <Fragment>
-      <div>
-        <h4 className="mb-2">Experience Credentials</h4>
-        {props.profile.experience.length > 0 ? (
+      {props.profile.experience.length > 0 ? (
+        <div>
+          <h4 className="mb-2">Experience Credentials</h4>
           <table className="table">
             <thead>
               <tr>
@@ -31,13 +31,13 @@ function displayProfile(props) {
               ))}
             </tbody>
           </table>
-        ) : null}
-      </div>
+        </div>
+      ) : null}
 
-      <div>
-        <h4 className="mb-2">Education Credentials</h4>
+      {props.profile.education.length > 0 ? (
+        <div>
+          <h4 className="mb-2">Education Credentials</h4>
 
-        {props.profile.education.length > 0 ? (
           <table className="table">
             <thead>
               <tr>
@@ -65,8 +65,8 @@ function displayProfile(props) {
               ))}
             </tbody>
           </table>
-        ) : null}
-      </div>
+        </div>
+      ) : null}
     </Fragment>
   );
 }
