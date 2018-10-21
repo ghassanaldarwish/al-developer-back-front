@@ -22,7 +22,7 @@ function displayProfile(props) {
                   <td>{experienceItem.title}</td>
                   <td>
                     {experienceItem.from} -{" "}
-                    {experienceItem.current ? experienceItem.to : "current"}
+                    {experienceItem.current ? "current" : experienceItem.to}
                   </td>
                   <td>
                     <button className="btn btn-danger">Delete</button>
@@ -56,7 +56,7 @@ function displayProfile(props) {
                   <th>{educationItem.fieldofstudy}</th>
                   <td>
                     {educationItem.from} -{" "}
-                    {educationItem.current ? educationItem.to : "current"}
+                    {educationItem.current ? "current" : educationItem.to}
                   </td>
                   <td>
                     <button className="btn btn-danger">Delete</button>
