@@ -38,7 +38,7 @@ export const createProfile = (profileData, history) => dispatch => {
     .catch(err =>
       dispatch({
         type: actionType.GET_ERRORS,
-        payload: err.response.data
+        payload: err
       })
     );
 };
@@ -125,16 +125,17 @@ export const getProfiles = () => dispatch => {
 };
 
 // Delete account & profile
-export const deleteAccount = () => dispatch => {
+export const deleteAccount = history => dispatch => {
   if (window.confirm("Are you sure? This can NOT be undone!")) {
     axios
       .delete("/api/profile")
-      .then(res =>
+      .then(res => {
         dispatch({
           type: actionType.SET_CURRENT_USER,
           payload: {}
-        })
-      )
+        });
+        history.push("/api/user/logout");
+      })
       .catch(err =>
         dispatch({
           type: actionType.GET_ERRORS,

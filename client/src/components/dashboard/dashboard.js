@@ -27,6 +27,15 @@ const dashboard = props => {
           </Typography>
           <ProfileActions />
           <DisplayProfile />
+
+          <div style={{ marginBottom: "60px" }}>
+            <button
+              onClick={e => props.onDeleteHandler(e)}
+              className="btn btn-danger"
+            >
+              Delete My Account
+            </button>
+          </div>
         </Fragment>
       );
     } else {

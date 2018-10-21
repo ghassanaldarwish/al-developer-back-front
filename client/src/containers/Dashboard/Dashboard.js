@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import * as actions from "../../store/actions";
 import Dashboard from "../../components/dashboard/dashboard";
 import { withStyles } from "@material-ui/core/styles";
+import { withRouter } from "react-router-dom";
 
 const styles = theme => ({
   layout: {
@@ -22,9 +23,17 @@ class dashboard extends Component {
     this.props.onProfile();
   }
 
+  onDeleteHandler = e => {
+    this.props.deleteAccount(this.props.history);
+  };
+
   displayHandlerSwitch = () => (
     <Fragment>
-      <Dashboard profile={this.props.profile} auth={this.props.auth} />
+      <Dashboard
+        profile={this.props.profile}
+        auth={this.props.auth}
+        onDeleteHandler={this.onDeleteHandler}
+      />
     </Fragment>
   );
 
@@ -54,4 +63,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   actions
-)(withStyles(styles)(dashboard));
+)(withStyles(styles)(withRouter(dashboard)));

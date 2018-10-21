@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import * as actions from "../../../store/actions";
 
 class createProfile extends Component {
@@ -245,4 +246,4 @@ class createProfile extends Component {
 export default connect(
   null,
   actions
-)(createProfile);
+)(withRouter(createProfile));

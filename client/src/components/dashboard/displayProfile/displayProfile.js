@@ -58,10 +58,6 @@ function displayProfile(props) {
           </tbody>
         </table>
       </div>
-
-      <div style={{ marginBottom: "60px" }}>
-        <button className="btn btn-danger">Delete My Account</button>
-      </div>
     </Fragment>
   );
 }
