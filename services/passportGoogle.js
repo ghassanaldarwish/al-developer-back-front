@@ -2,6 +2,7 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const mongoose = require("mongoose");
 const keys = require("../config/keys");
+const isEmpty = require("../validation/isEmpty");
 
 const User = mongoose.model("users");
 
@@ -34,7 +35,9 @@ passport.use(
           googleId: profile.id,
           name: profile.displayName || profile.familyName || profile.givenName,
           email: profile.emails[0].value,
-          avatar: profile._json.image.url
+          avatar: isEmpty(profile._json.image.url)
+            ? "https://radio-7.net/wp-content/plugins/wp-first-letter-avatar/images/default/256/mystery.png"
+            : profile._json.image.url
         }).save();
 
         done(null, createUser);
