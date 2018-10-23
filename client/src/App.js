@@ -2,11 +2,12 @@ import React, { Component, Fragment } from "react";
 import Navigation from "./containers/Navigation/Navigation";
 import Footer from "./containers/Footer/Footer";
 import Homepage from "./containers/Homepage/Homepage";
-import Profile from "./containers/Profile/Profile";
+import CreateProfile from "./containers/Profile/CreateProfile/CreateProfile";
 import Post from "./containers/Post/Post";
 import EditPprofile from "./components/editProfile/editProfile";
 import Experience from "./components/experience/experience";
 import Education from "./components/education/education";
+import Profiles from "./containers/Profiles/Profiles";
 
 import Dashboard from "./containers/Dashboard/Dashboard";
 import PrivateRoute from "./containers/PrivateRoute/PrivateRoute";
@@ -41,7 +42,7 @@ class App extends Component {
                       <PrivateRoute
                         path="/create-profile"
                         exact
-                        component={Profile}
+                        component={CreateProfile}
                       />
                       <PrivateRoute
                         path="/edit-profile"
@@ -57,6 +58,11 @@ class App extends Component {
                         path="/add-education"
                         exact
                         component={Education}
+                      />
+                      <PrivateRoute
+                        path="/profiles"
+                        exact
+                        component={Profiles}
                       />
 
                       <Redirect to="/" />

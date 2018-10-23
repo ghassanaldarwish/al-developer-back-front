@@ -41,7 +41,7 @@ export const mainListItemsAuth = (
         <ListItemText primary="Dashboard" />
       </ListItem>
     </Link>
-    <Link to="/profile">
+    <Link to="/profiles">
       <ListItem button>
         <ListItemIcon>
           <AccountCircleIcon />
