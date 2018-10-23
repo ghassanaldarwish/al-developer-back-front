@@ -28,7 +28,7 @@ class profiles extends React.Component {
                     />
                   </div>
                   <div className="col-lg-6 col-md-4 col-8">
-                    <h3>{profile.handle}</h3>
+                    <h3>{profile.user.name}</h3>
                     <p>{profile.company}</p>
                     <p>{profile.location}</p>
                     <a href="profile.html" className="btn btn-info">
