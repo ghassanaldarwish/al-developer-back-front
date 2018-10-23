@@ -1,4 +1,9 @@
 import React, { Fragment } from "react";
+import Moment from "react-moment";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+
+import * as actions from "../../../store/actions";
 
 function displayProfile(props) {
   return (
@@ -21,11 +26,20 @@ function displayProfile(props) {
                   <td>{experienceItem.company}</td>
                   <td>{experienceItem.title}</td>
                   <td>
-                    {experienceItem.from} -{" "}
-                    {experienceItem.current ? "current" : experienceItem.to}
+                    <Moment format="YYYY/MM/DD">{experienceItem.from}</Moment> -{" "}
+                    {experienceItem.current ? (
+                      "current"
+                    ) : (
+                      <Moment format="YYYY/MM/DD">{experienceItem.to}</Moment>
+                    )}
                   </td>
                   <td>
-                    <button className="btn btn-danger">Delete</button>
+                    <button
+                      onClick={() => props.deleteExperience(experienceItem._id)}
+                      className="btn btn-danger"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -55,11 +69,20 @@ function displayProfile(props) {
                   <td>{educationItem.degree}</td>
                   <th>{educationItem.fieldofstudy}</th>
                   <td>
-                    {educationItem.from} -{" "}
-                    {educationItem.current ? "current" : educationItem.to}
+                    <Moment format="YYYY/MM/DD">{educationItem.from}</Moment> -{" "}
+                    {educationItem.current ? (
+                      "current"
+                    ) : (
+                      <Moment format="YYYY/MM/DD">{educationItem.to}</Moment>
+                    )}
                   </td>
                   <td>
-                    <button className="btn btn-danger">Delete</button>
+                    <button
+                      onClick={() => props.deleteEducation(educationItem._id)}
+                      className="btn btn-danger"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -71,4 +94,7 @@ function displayProfile(props) {
   );
 }
 
-export default displayProfile;
+export default connect(
+  null,
+  actions
+)(withRouter(displayProfile));
