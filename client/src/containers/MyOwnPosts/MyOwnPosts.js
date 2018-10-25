@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Post from "../../components/post/post";
+import CreatePost from "../../components/createPost/createPost";
+import MyOwnPosts from "../../components/myOwnPosts/myOwnPosts";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
@@ -14,17 +15,18 @@ const styles = theme => ({
     }
   }
 });
-class post extends Component {
+class posts extends Component {
   render() {
     const { classes } = this.props;
     return (
       <div className="Layout">
         <main className={classes.layout}>
-          <Post />
+          <CreatePost />
+          <MyOwnPosts />
         </main>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(post);
+export default withStyles(styles)(posts);

@@ -3,16 +3,20 @@ import Navigation from "./containers/Navigation/Navigation";
 import Footer from "./containers/Footer/Footer";
 import Homepage from "./containers/Homepage/Homepage";
 import CreateProfile from "./containers/Profile/CreateProfile/CreateProfile";
-import Post from "./containers/Post/Post";
+// import Post from "./containers/Post/Post";
 import EditPprofile from "./components/editProfile/editProfile";
 import Experience from "./components/experience/experience";
 import Education from "./components/education/education";
 import Profiles from "./containers/Profiles/Profiles";
-import Posts from "./containers/Posts/Posts";
+import PostsPrivate from "./containers/PostsPrivate/PostsPrivate";
+import PostsPublic from "./containers/PostsPublic/PostsPublic";
+
 import ProfileHandle from "./containers/ProfileHandle/ProfileHandle";
 
 import Dashboard from "./containers/Dashboard/Dashboard";
 import PrivateRoute from "./containers/PrivateRoute/PrivateRoute";
+import MyOwnPosts from "./containers/MyOwnPosts/MyOwnPosts";
+
 import { Route, Switch, Redirect } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
@@ -34,14 +38,22 @@ class App extends Component {
                   <Fragment>
                     <Switch location={location}>
                       <Route path="/" exact component={Homepage} />
-                      <Route path="/posts" exact component={Posts} />
+                      <Route
+                        path="/posts-public"
+                        exact
+                        component={PostsPublic}
+                      />
                       <PrivateRoute
                         path="/dashboard"
                         exact
                         component={Dashboard}
                       />
 
-                      <PrivateRoute path="/post" exact component={Post} />
+                      <PrivateRoute
+                        path="/posts-private"
+                        exact
+                        component={PostsPrivate}
+                      />
                       <PrivateRoute
                         path="/create-profile"
                         exact
@@ -57,6 +69,7 @@ class App extends Component {
                         exact
                         component={Experience}
                       />
+
                       <PrivateRoute
                         path="/add-education"
                         exact
@@ -66,6 +79,11 @@ class App extends Component {
                         path="/profiles"
                         exact
                         component={Profiles}
+                      />
+                      <PrivateRoute
+                        path="/my-own-posts"
+                        exact
+                        component={MyOwnPosts}
                       />
                       <PrivateRoute
                         path="/profile/:handle"

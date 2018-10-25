@@ -10,3 +10,14 @@ export {
   getProfiles,
   deleteAccount
 } from "./profile";
+
+export {
+  addPost,
+  getPost,
+  getPosts,
+  deletePost,
+  addLike,
+  removeLike,
+  addComment,
+  deleteComment
+} from "./post";

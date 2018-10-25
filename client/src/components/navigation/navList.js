@@ -20,7 +20,7 @@ export const mainListItems = (
         <ListItemText primary="Home" />
       </ListItem>
     </Link>
-    <Link to="/posts">
+    <Link to="/posts-public">
       <ListItem button>
         <ListItemIcon>
           <i class="fas fa-comments fa-lg" />
@@ -41,7 +41,7 @@ export const mainListItemsAuth = (
         <ListItemText primary="Home" />
       </ListItem>
     </Link>
-    <Link to="/posts">
+    <Link to="/posts-private">
       <ListItem button>
         <ListItemIcon>
           <i class="fas fa-comments fa-lg" />
@@ -65,7 +65,7 @@ export const mainListItemsAuth = (
         <ListItemText primary="Profile" />
       </ListItem>
     </Link>
-    <Link to="/post">
+    <Link to="/my-own-posts">
       <ListItem button>
         <ListItemIcon>
           <CreatePost />
