@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import Spinner from "../../UI/Spinner/Spinner";
 
@@ -15,12 +16,13 @@ class githubrepos extends Component {
     const { githubusername } = this.props;
     const { count, sort, clientId, clientSecret } = this.state;
 
-    fetch(
-      `https://api.github.com/users/${githubusername}/repos?per_page=${count}&sort=${sort}&client_id=${clientId}&client_secret=${clientSecret}`
-    )
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ repos: data });
+    axios
+      .get(
+        `https://api.github.com/users/${githubusername}/repos?per_page=${count}&sort=${sort}&client_id=${clientId}&client_secret=${clientSecret}`
+      )
+
+      .then(res => {
+        this.setState({ repos: res.data });
       })
       .catch(err => console.log(err));
   }
