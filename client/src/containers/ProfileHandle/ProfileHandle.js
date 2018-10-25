@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-
-import Typography from "@material-ui/core/Typography";
-
+import ProfileHandle from "../../components/profileHandle/profileHandle";
 import { withStyles } from "@material-ui/core/styles";
-import Profiles from "../../components/profiles/profiles";
 
 const styles = theme => ({
   layout: {
@@ -17,25 +14,17 @@ const styles = theme => ({
     }
   }
 });
-class dashboard extends Component {
+class profileHandle extends Component {
   render() {
     const { classes } = this.props;
     return (
       <div className="Layout">
         <main className={classes.layout}>
-          <Typography
-            align="center"
-            component="h2"
-            variant="display3"
-            gutterBottom
-          >
-            Developer Profiles
-          </Typography>
-          <Profiles />
+          <ProfileHandle />
         </main>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(dashboard);
+export default withStyles(styles)(profileHandle);

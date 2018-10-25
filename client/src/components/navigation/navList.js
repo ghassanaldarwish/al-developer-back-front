@@ -20,6 +20,14 @@ export const mainListItems = (
         <ListItemText primary="Home" />
       </ListItem>
     </Link>
+    <Link to="/posts">
+      <ListItem button>
+        <ListItemIcon>
+          <i class="fas fa-comments fa-lg" />
+        </ListItemIcon>
+        <ListItemText primary="Users Posts" />
+      </ListItem>
+    </Link>
   </div>
 );
 
@@ -31,6 +39,14 @@ export const mainListItemsAuth = (
           <HomeIcon />
         </ListItemIcon>
         <ListItemText primary="Home" />
+      </ListItem>
+    </Link>
+    <Link to="/posts">
+      <ListItem button>
+        <ListItemIcon>
+          <i class="fas fa-comments fa-lg" />
+        </ListItemIcon>
+        <ListItemText primary="Users Posts" />
       </ListItem>
     </Link>
     <Link to="/dashboard">

@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import * as actions from "../../store/actions";
 import Spinner from "../UI/Spinner/Spinner";
 
@@ -18,7 +19,10 @@ class profiles extends React.Component {
             </p>
 
             {this.props.profile.profiles.map(profile => (
-              <div className="card card-body bg-light mb-3">
+              <div
+                key={profile.handle}
+                className="card card-body bg-light mb-3"
+              >
                 <div className="row">
                   <div className="col-2">
                     <img
@@ -31,9 +35,12 @@ class profiles extends React.Component {
                     <h3>{profile.user.name}</h3>
                     <p>{profile.company}</p>
                     <p>{profile.location}</p>
-                    <a href="profile.html" className="btn btn-info">
+                    <Link
+                      to={`/profile/${profile.handle}`}
+                      className="btn btn-info"
+                    >
                       View Profile
-                    </a>
+                    </Link>
                   </div>
                   <div className="col-md-4 d-none d-lg-block">
                     <h4>Skill Set</h4>

@@ -8,6 +8,8 @@ import EditPprofile from "./components/editProfile/editProfile";
 import Experience from "./components/experience/experience";
 import Education from "./components/education/education";
 import Profiles from "./containers/Profiles/Profiles";
+import Posts from "./containers/Posts/Posts";
+import ProfileHandle from "./containers/ProfileHandle/ProfileHandle";
 
 import Dashboard from "./containers/Dashboard/Dashboard";
 import PrivateRoute from "./containers/PrivateRoute/PrivateRoute";
@@ -32,6 +34,7 @@ class App extends Component {
                   <Fragment>
                     <Switch location={location}>
                       <Route path="/" exact component={Homepage} />
+                      <Route path="/posts" exact component={Posts} />
                       <PrivateRoute
                         path="/dashboard"
                         exact
@@ -63,6 +66,11 @@ class App extends Component {
                         path="/profiles"
                         exact
                         component={Profiles}
+                      />
+                      <PrivateRoute
+                        path="/profile/:handle"
+                        exact
+                        component={ProfileHandle}
                       />
 
                       <Redirect to="/" />
