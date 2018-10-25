@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 import Spinner from "../../UI/Spinner/Spinner";
@@ -9,7 +10,8 @@ class githubrepos extends Component {
     clientSecret: "feed377c6d4b291dc36bf0c81c393f6e8868e9b8",
     count: 6,
     sort: "updated",
-    repos: null
+    repos: null,
+    errorFetch: false
   };
 
   componentDidMount() {
@@ -22,9 +24,9 @@ class githubrepos extends Component {
       )
 
       .then(res => {
-        this.setState({ repos: res.data });
+        this.setState({ repos: res.data, errorFetch: false });
       })
-      .catch(err => console.log(err));
+      .catch(err => this.setState({ errorFetch: true }));
   }
   render() {
     return (
@@ -62,6 +64,16 @@ class githubrepos extends Component {
               </div>
             </div>
           ))
+        ) : this.state.errorFetch ? (
+          <p>
+            please check your github user name !!
+            <Link
+              to="/edit-profile"
+              style={{ color: "blue", textDecoration: "underLine" }}
+            >
+              follow this path
+            </Link>
+          </p>
         ) : (
           <Spinner />
         )}
