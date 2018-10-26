@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import * as actions from "../../store/actions";
-import Spinner from "../UI/Spinner/Spinner";
 
 const isEmpty = value =>
   value === undefined ||
@@ -36,9 +35,7 @@ class post extends Component {
   };
 
   render() {
-    return isEmpty(this.props.auth) && isEmpty(this.props.profile.profile) ? (
-      <Spinner />
-    ) : (
+    return (
       <div className="post-form mb-3">
         <div className="card card-info">
           <div className="card-header bg-info text-white">Feed Post...</div>
@@ -71,7 +68,8 @@ class post extends Component {
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  profile: state.profile
+  profile: state.profile,
+  post: state.post
 });
 
 export default connect(

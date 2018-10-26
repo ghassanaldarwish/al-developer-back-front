@@ -31,11 +31,17 @@ class singlePost extends Component {
       avatar: this.props.auth.avatar
     };
 
-    this.props.addComment(this.props.match.params.id, commentData);
+    this.props.addComment(
+      this.props.match.params.id,
+      commentData,
+      this.props.history
+    );
     this.setState({ comment: "" });
   };
   render() {
-    return this.props.post.loading ? (
+    return this.props.post.loading ||
+      this.props.post === null ||
+      Object.keys(this.props.post).length === 0 ? (
       <Spinner />
     ) : (
       <Fragment>

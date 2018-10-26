@@ -6,11 +6,11 @@ export const addPost = (postData, history) => dispatch => {
   axios
     .post("/api/post", postData)
     .then(res => {
-      history.push("/posts-private");
       dispatch({
         type: actionType.ADD_POST,
         payload: res.data
       });
+      history.push("/posts-private");
     })
     .catch(err =>
       dispatch({
@@ -126,16 +126,18 @@ export const removeLike = id => dispatch => {
 };
 
 // Add Comment
-export const addComment = (postId, commentData) => dispatch => {
+export const addComment = (postId, commentData, history) => dispatch => {
   dispatch(clearErrors());
   axios
     .post(`/api/post/comment/${postId}`, commentData)
-    .then(res =>
+    .then(res => {
       dispatch({
         type: actionType.GET_POST,
         payload: res.data
-      })
-    )
+      });
+
+      history.push("/post/" + postId);
+    })
     .catch(err =>
       dispatch({
         type: actionType.GET_ERRORS,

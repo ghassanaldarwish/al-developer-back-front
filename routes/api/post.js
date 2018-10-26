@@ -38,21 +38,22 @@ router.post("/", login, async (req, res) => {
   if (!isValid) {
     res.status(404).json(errors);
   }
-  try {
-    const post = await new Post({
-      text: req.body.text,
-      name: req.body.name,
-      avatar: req.body.avatar,
-      user: req.user.id,
-      handle: req.body.handle
-    }).save();
 
-    res.json(post);
-  } catch (error) {
-    res
-      .status(404)
-      .json({ msg: "you can not add the post there is somthing went wrong!!" });
-  }
+  await new Post({
+    text: req.body.text,
+    name: req.body.name,
+    avatar: req.body.avatar,
+    user: req.user.id,
+    handle: req.body.handle
+  })
+    .save()
+    .then(post => res.json(post))
+
+    .catch(err =>
+      res.status(404).json({
+        msg: "you can not add the post there is somthing went wrong!!"
+      })
+    );
 });
 router.delete("/:id", login, (req, res) => {
   try {
@@ -129,8 +130,9 @@ router.post("/comment/:id", login, async (req, res) => {
   if (!isValid) {
     res.status(404).json(errors);
   }
-  try {
-    Post.findById(req.params.id).then(post => {
+
+  Post.findById(req.params.id)
+    .then(post => {
       const newComment = {
         text: req.body.text,
         name: req.body.name,
@@ -143,10 +145,8 @@ router.post("/comment/:id", login, async (req, res) => {
 
       // Save
       post.save().then(post => res.json(post));
-    });
-  } catch (error) {
-    res.status(404).json({ msg: "NOT FOUND" });
-  }
+    })
+    .catch(err => res.status(404).json({ msg: "NOT FOUND" }));
 });
 
 // @access  Private

@@ -14,7 +14,10 @@ class posts extends Component {
     this.props.getPosts();
   }
   render() {
-    return isEmpty(this.props.post.posts) ? (
+    return this.props.post.loading ||
+      this.props.post === null ||
+      Object.keys(this.props.post.posts).length === 0 ||
+      isEmpty(this.props.post.posts) ? (
       <Spinner />
     ) : (
       this.props.post.posts.map(post => (
