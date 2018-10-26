@@ -34,16 +34,31 @@ class posts extends Component {
               </div>
               <div className="col-md-10">
                 <p className="lead">{post.text}</p>
-                <button type="button" className="btn btn-light mr-1">
-                  <i className="text-info fas fa-thumbs-up" />
-                  <span className="badge badge-light">4</span>
+                <button
+                  onClick={() => this.props.addLike(post._id)}
+                  type="button"
+                  className="btn btn-light mr-1"
+                >
+                  <i
+                    className={
+                      post.likes.length > 0
+                        ? "text-info fas fa-thumbs-up"
+                        : "text-secondary fas fa-thumbs-up"
+                    }
+                  />
+                  <span className="badge badge-light">{post.likes.length}</span>
                 </button>
-                <button type="button" className="btn btn-light mr-1">
+
+                <button
+                  onClick={() => this.props.removeLike(post._id)}
+                  type="button"
+                  className="btn btn-light mr-1"
+                >
                   <i className="text-secondary fas fa-thumbs-down" />
                 </button>
-                <a href="post.html" className="btn btn-info mr-1">
+                <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
                   Comments
-                </a>
+                </Link>
               </div>
             </div>
           </div>

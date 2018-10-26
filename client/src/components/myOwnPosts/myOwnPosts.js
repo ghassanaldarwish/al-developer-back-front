@@ -44,7 +44,13 @@ class posts extends Component {
                 <a href="post.html" className="btn btn-info mr-1">
                   Comments
                 </a>
-                <button type="button" className="btn btn-danger mr-1">
+                <button
+                  onClick={() =>
+                    this.props.deletePost(post._id, this.props.history)
+                  }
+                  type="button"
+                  className="btn btn-danger mr-1"
+                >
                   <i className="fas fa-times" />
                 </button>
               </div>

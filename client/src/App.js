@@ -12,6 +12,7 @@ import PostsPrivate from "./containers/PostsPrivate/PostsPrivate";
 import PostsPublic from "./containers/PostsPublic/PostsPublic";
 
 import ProfileHandle from "./containers/ProfileHandle/ProfileHandle";
+import Comments from "./containers/Comments/Comments";
 
 import Dashboard from "./containers/Dashboard/Dashboard";
 import PrivateRoute from "./containers/PrivateRoute/PrivateRoute";
@@ -89,6 +90,11 @@ class App extends Component {
                         path="/profile/:handle"
                         exact
                         component={ProfileHandle}
+                      />
+                      <PrivateRoute
+                        path="/post/:id"
+                        exact
+                        component={Comments}
                       />
 
                       <Redirect to="/" />

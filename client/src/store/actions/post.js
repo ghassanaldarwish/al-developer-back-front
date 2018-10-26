@@ -77,15 +77,16 @@ export const getPost = id => dispatch => {
 };
 
 // Delete Post
-export const deletePost = id => dispatch => {
+export const deletePost = (id, history) => dispatch => {
   axios
     .delete(`/api/post/${id}`)
-    .then(res =>
+    .then(res => {
+      history.push("/my-own-posts");
       dispatch({
         type: actionType.DELETE_POST,
         payload: id
-      })
-    )
+      });
+    })
     .catch(err =>
       dispatch({
         type: actionType.GET_ERRORS,
@@ -98,7 +99,9 @@ export const deletePost = id => dispatch => {
 export const addLike = id => dispatch => {
   axios
     .post(`/api/post/like/${id}`)
-    .then(res => dispatch(getPosts()))
+    .then(res => {
+      dispatch(getPosts());
+    })
     .catch(err =>
       dispatch({
         type: actionType.GET_ERRORS,
@@ -111,7 +114,9 @@ export const addLike = id => dispatch => {
 export const removeLike = id => dispatch => {
   axios
     .post(`/api/post/unlike/${id}`)
-    .then(res => dispatch(getPosts()))
+    .then(res => {
+      dispatch(getPosts());
+    })
     .catch(err =>
       dispatch({
         type: actionType.GET_ERRORS,

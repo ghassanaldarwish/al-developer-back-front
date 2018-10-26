@@ -29,6 +29,7 @@ class githubrepos extends Component {
       .catch(err => this.setState({ errorFetch: true }));
   }
   render() {
+    console.log(this.state.repos);
     return (
       <div ref="myRef">
         <hr />
@@ -51,13 +52,17 @@ class githubrepos extends Component {
                   <p>{repo.description}</p>
                 </div>
                 <div className="col-md-6">
-                  <span className="badge badge-info mr-1">
-                    Stars: {repo.stargazers_count}
+                  <span className="badge badge-primary mr-1">
+                    Language: {repo.language}
+                  </span>
+
+                  <span className="badge badge-warning mr-1">
+                    Last updated: {repo.updated_at}
                   </span>
                   <span className="badge badge-secondary mr-1">
                     Watchers: {repo.watchers_count}
                   </span>
-                  <span className="badge badge-success">
+                  <span className="badge badge-success mr-1">
                     Forks: {repo.forks_count}
                   </span>
                 </div>
