@@ -12,9 +12,14 @@ const isEmpty = value =>
 class posts extends Component {
   componentDidMount() {
     this.props.getUserPosts(this.props.auth._id);
+    this.props.getPosts();
   }
   render() {
-    return isEmpty(this.props.post.userPosts) ? (
+    return isEmpty(this.props.post.userPosts) ||
+      this.props.post.loading ||
+      this.props.post === null ||
+      Object.keys(this.props.post.posts).length === 0 ||
+      isEmpty(this.props.post.posts) ? (
       <Spinner />
     ) : (
       this.props.post.userPosts.map(post => (
@@ -34,16 +39,23 @@ class posts extends Component {
               </div>
               <div className="col-md-10">
                 <p className="lead">{post.text}</p>
-                <button type="button" className="btn btn-light mr-1">
-                  <i className="text-info fas fa-thumbs-up" />
-                  <span className="badge badge-light">4</span>
-                </button>
-                <button type="button" className="btn btn-light mr-1">
-                  <i className="text-secondary fas fa-thumbs-down" />
-                </button>
-                <a href="post.html" className="btn btn-info mr-1">
-                  Comments
-                </a>
+                <div className="btn btn-light mr-1">
+                  <i
+                    className={
+                      post.likes.length > 0
+                        ? "text-info fas fa-thumbs-up"
+                        : "text-secondary fas fa-thumbs-up"
+                    }
+                  />
+                  <span className="badge badge-light">{post.likes.length}</span>
+                </div>
+
+                <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
+                  Comments{" "}
+                  <span className="badge badge-light">
+                    {post.comments.length}
+                  </span>
+                </Link>
                 <button
                   onClick={() =>
                     this.props.deletePost(post._id, this.props.history)
@@ -64,7 +76,8 @@ class posts extends Component {
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  post: state.post
+  post: state.post,
+  profile: state.profile
 });
 
 export default connect(

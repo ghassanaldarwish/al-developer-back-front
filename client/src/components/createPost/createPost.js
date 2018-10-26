@@ -16,6 +16,7 @@ class post extends Component {
   };
   componentDidMount() {
     this.props.onProfile();
+    this.props.getPosts();
   }
   onChangeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });

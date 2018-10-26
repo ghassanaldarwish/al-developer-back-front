@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CreatePost from "../../components/createPost/createPost";
 import MyOwnPosts from "../../components/myOwnPosts/myOwnPosts";
+import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
@@ -21,6 +22,9 @@ class posts extends Component {
     return (
       <div className="Layout">
         <main className={classes.layout}>
+          <Typography component="h2" variant="display3" gutterBottom>
+            Your Postes
+          </Typography>
           <CreatePost />
           <MyOwnPosts />
         </main>

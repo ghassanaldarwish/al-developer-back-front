@@ -31,6 +31,21 @@ class comments extends Component {
               </div>
               <div class="col-md-10">
                 <p class="lead">{comment.text}</p>
+
+                {comment.user === this.props.auth._id ? (
+                  <button
+                    onClick={() =>
+                      this.props.deleteComment(
+                        this.props.post.post._id,
+                        comment._id
+                      )
+                    }
+                    type="button"
+                    className="btn btn-danger mr-1"
+                  >
+                    <i className="fas fa-times" />
+                  </button>
+                ) : null}
               </div>
             </div>
           </div>

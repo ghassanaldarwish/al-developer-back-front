@@ -57,6 +57,7 @@ class singlePost extends Component {
     );
   }
 }
+// deleteComment
 
 const mapStateToProps = state => ({
   auth: state.auth,

@@ -60,7 +60,10 @@ class posts extends Component {
                   <i className="text-secondary fas fa-thumbs-down" />
                 </button>
                 <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
-                  Comments
+                  Comments{" "}
+                  <span className="badge badge-light">
+                    {post.comments.length}
+                  </span>
                 </Link>
               </div>
             </div>
