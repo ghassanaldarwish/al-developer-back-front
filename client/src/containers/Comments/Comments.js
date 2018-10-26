@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Comments from "../../components/comments/comments";
+import SinglePost from "../../components/comments/singlePost";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
@@ -21,7 +21,7 @@ class comments extends Component {
     return (
       <div className="Layout">
         <main className={classes.layout}>
-          <Comments />
+          <SinglePost />
         </main>
       </div>
     );
