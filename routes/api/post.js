@@ -23,7 +23,15 @@ router.get("/:id", async (req, res) => {
     res.status(404).json({ msg: "this post is not exists" });
   }
 });
-//privet education
+
+router.get("/user-posts/:id", login, async (req, res) => {
+  try {
+    res.json(await Post.find({ user: req.params.id }).sort({ date: -1 }));
+  } catch (error) {
+    res.status(404).json({ msg: "this post is not exists" });
+  }
+});
+//privet single post
 
 router.post("/", login, async (req, res) => {
   const { errors, isValid } = validatePostInput(req.body);
@@ -35,7 +43,8 @@ router.post("/", login, async (req, res) => {
       text: req.body.text,
       name: req.body.name,
       avatar: req.body.avatar,
-      user: req.user.id
+      user: req.user.id,
+      handle: req.body.handle
     }).save();
 
     res.json(post);

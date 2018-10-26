@@ -13,6 +13,7 @@ export {
 
 export {
   addPost,
+  getUserPosts,
   getPost,
   getPosts,
   deletePost,

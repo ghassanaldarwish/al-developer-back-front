@@ -83,7 +83,7 @@ class editProfile extends Component {
     }
   }
 
-  onSubmit(e) {
+  onSubmit = e => {
     e.preventDefault();
 
     const profileData = {
@@ -101,7 +101,7 @@ class editProfile extends Component {
     };
 
     this.props.createProfile(profileData, this.props.history);
-  }
+  };
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });

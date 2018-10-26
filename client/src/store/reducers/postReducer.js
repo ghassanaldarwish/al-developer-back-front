@@ -2,6 +2,7 @@ import * as actionType from "../actions/actionTypes";
 
 const initialState = {
   posts: [],
+  userPosts: [],
   post: {},
   loading: false
 };
@@ -17,6 +18,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         posts: action.payload,
+        loading: false
+      };
+    case actionType.GET_USER_POSTS:
+      return {
+        ...state,
+        userPosts: action.payload,
         loading: false
       };
     case actionType.GET_POST:
