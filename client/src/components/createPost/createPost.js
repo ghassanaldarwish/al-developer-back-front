@@ -3,12 +3,32 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as actions from "../../store/actions";
+import TextField from "@material-ui/core/TextField";
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
 
 const isEmpty = value =>
   value === undefined ||
   value === null ||
   (typeof value === "object" && Object.keys(value).length === 0) ||
   (typeof value === "string" && value.trim().length === 0);
+
+const styles = theme => ({
+  root: {
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 2
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit
+  },
+  button: {
+    margin: theme.spacing.unit
+  }
+});
 
 class post extends Component {
   state = {
@@ -36,33 +56,34 @@ class post extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
-      <div className="post-form mb-3">
-        <div className="card card-info">
-          <div className="card-header bg-info text-white">Feed Post...</div>
-          <div className="card-body">
-            <form onSubmit={this.onSubmit}>
-              <div className="form-group">
-                <textarea
-                  className="form-control form-control-lg"
-                  placeholder="Create a post"
-                  name="createPost"
-                  value={this.state.createPost}
-                  onChange={this.onChangeHandler}
-                />
-              </div>
-
-              <button
-                disabled={isEmpty(this.state.createPost) ? true : false}
-                type="submit"
-                className="btn btn-dark"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
+      <Paper className={classes.root} elevation={1}>
+        <form onSubmit={this.onSubmit}>
+          <TextField
+            multiline
+            fullWidth
+            autoFocus
+            id="standard-with-placeholder"
+            label="Create a post"
+            placeholder="Create a post"
+            name="createPost"
+            value={this.state.createPost}
+            onChange={this.onChangeHandler}
+            className={classes.textField}
+            margin="normal"
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            type="submit"
+            disabled={isEmpty(this.state.createPost) ? true : false}
+          >
+            Post it
+          </Button>
+        </form>
+      </Paper>
     );
   }
 }
@@ -76,4 +97,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   actions
-)(withRouter(post));
+)(withRouter(withStyles(styles)(post)));

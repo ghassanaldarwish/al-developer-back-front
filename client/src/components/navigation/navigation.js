@@ -179,11 +179,6 @@ class Dashboard extends React.Component {
                   <a href="/api/user/auth/google">Login with google+</a>
                 </Button>
               )}
-              {/* <IconButton color="inherit">
-                <Badge badgeContent={4} color="secondary">
-                  <NotificationsIcon />
-                </Badge>
-              </IconButton> */}
             </Toolbar>
           </AppBar>
           <Drawer
@@ -212,13 +207,6 @@ class Dashboard extends React.Component {
             <List>{secondaryListItems}</List>
           </Drawer>
           <main className={classes.content}>
-            {/* <div className={classes.appBarSpacer} />
-            <Typography variant="h4" gutterBottom component="h2">
-              Orders
-            </Typography>
-            <Typography component="div" className={classes.chartContainer}>
-              <SimpleLineChart />
-            </Typography> */}
             <Typography variant="h4" gutterBottom component="h2">
               Products
             </Typography>

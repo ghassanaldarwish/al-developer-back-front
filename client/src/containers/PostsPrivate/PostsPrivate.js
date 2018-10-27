@@ -9,7 +9,7 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
-      width: 900,
+      width: 700,
       marginLeft: "auto",
       marginRight: "auto"
     }
@@ -19,7 +19,7 @@ class posts extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className="Layout">
+      <div style={{ marginTop: "33px" }}>
         <main className={classes.layout}>
           <CreatePost />
           <PostsPrivate />

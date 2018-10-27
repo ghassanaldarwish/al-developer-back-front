@@ -44,6 +44,7 @@ class App extends Component {
                         exact
                         component={PostsPublic}
                       />
+
                       <PrivateRoute
                         path="/dashboard"
                         exact

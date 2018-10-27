@@ -41,7 +41,10 @@ export const mainListItemsAuth = (
         <ListItemText primary="Home" />
       </ListItem>
     </Link>
-    <Link to="/posts-private">
+    <Link
+      //  style={{ display: "none" }}
+      to="/posts-private"
+    >
       <ListItem button>
         <ListItemIcon>
           <i class="fas fa-comments fa-lg" />
