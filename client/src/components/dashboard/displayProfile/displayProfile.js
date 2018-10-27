@@ -2,10 +2,20 @@ import React, { Fragment } from "react";
 import Moment from "react-moment";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import IconButton from "@material-ui/core/IconButton";
+import { withStyles } from "@material-ui/core/styles";
+
+import DeleteIcon from "@material-ui/icons/Delete";
 
 import * as actions from "../../../store/actions";
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit
+  }
+});
 
 function displayProfile(props) {
+  const { classes } = props;
   return (
     <Fragment>
       {props.profile.experience.length > 0 ? (
@@ -34,12 +44,20 @@ function displayProfile(props) {
                     )}
                   </td>
                   <td>
-                    <button
+                    <IconButton
+                      onClick={() => props.deleteExperience(experienceItem._id)}
+                      color="secondary"
+                      aria-label="Delete"
+                      className={classes.button}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                    {/* <button
                       onClick={() => props.deleteExperience(experienceItem._id)}
                       className="btn btn-danger"
                     >
                       Delete
-                    </button>
+                    </button> */}
                   </td>
                 </tr>
               ))}
@@ -77,12 +95,20 @@ function displayProfile(props) {
                     )}
                   </td>
                   <td>
-                    <button
+                    <IconButton
+                      onClick={() => props.deleteEducation(educationItem._id)}
+                      color="secondary"
+                      aria-label="Delete"
+                      className={classes.button}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                    {/* <button
                       onClick={() => props.deleteEducation(educationItem._id)}
                       className="btn btn-danger"
                     >
                       Delete
-                    </button>
+                    </button> */}
                   </td>
                 </tr>
               ))}
@@ -97,4 +123,4 @@ function displayProfile(props) {
 export default connect(
   null,
   actions
-)(withRouter(displayProfile));
+)(withRouter(withStyles(styles)(displayProfile)));

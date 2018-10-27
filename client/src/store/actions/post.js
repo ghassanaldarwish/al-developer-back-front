@@ -15,7 +15,7 @@ export const addPost = (postData, history) => dispatch => {
     .catch(err =>
       dispatch({
         type: actionType.GET_ERRORS,
-        payload: err.response.data
+        payload: err.response
       })
     );
 };
@@ -90,7 +90,7 @@ export const deletePost = (id, history) => dispatch => {
     .catch(err =>
       dispatch({
         type: actionType.GET_ERRORS,
-        payload: err.response.data
+        payload: err.response
       })
     );
 };
@@ -105,7 +105,7 @@ export const addLike = id => dispatch => {
     .catch(err =>
       dispatch({
         type: actionType.GET_ERRORS,
-        payload: err.response.data
+        payload: err.response
       })
     );
 };
@@ -120,7 +120,7 @@ export const removeLike = id => dispatch => {
     .catch(err =>
       dispatch({
         type: actionType.GET_ERRORS,
-        payload: err.response.data
+        payload: err.response
       })
     );
 };
@@ -141,7 +141,7 @@ export const addComment = (postId, commentData, history) => dispatch => {
     .catch(err =>
       dispatch({
         type: actionType.GET_ERRORS,
-        payload: err.response.data
+        payload: err.response
       })
     );
 };
@@ -159,7 +159,7 @@ export const deleteComment = (postId, commentId) => dispatch => {
     .catch(err =>
       dispatch({
         type: actionType.GET_ERRORS,
-        payload: err.response.data
+        payload: err.response
       })
     );
 };

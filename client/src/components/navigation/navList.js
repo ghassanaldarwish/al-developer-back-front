@@ -41,10 +41,7 @@ export const mainListItemsAuth = (
         <ListItemText primary="Home" />
       </ListItem>
     </Link>
-    <Link
-      //  style={{ display: "none" }}
-      to="/posts-private"
-    >
+    <Link style={{ display: "none" }} to="/posts-private">
       <ListItem button>
         <ListItemIcon>
           <i class="fas fa-comments fa-lg" />
@@ -55,17 +52,17 @@ export const mainListItemsAuth = (
     <Link to="/dashboard">
       <ListItem button>
         <ListItemIcon>
-          <DashboardIcon />
+          <AccountCircleIcon />
         </ListItemIcon>
-        <ListItemText primary="Dashboard" />
+        <ListItemText primary="Your Profile" />
       </ListItem>
     </Link>
     <Link to="/profiles">
       <ListItem button>
         <ListItemIcon>
-          <AccountCircleIcon />
+          <i class="fas fa-comments fa-lg" />
         </ListItemIcon>
-        <ListItemText primary="Profile" />
+        <ListItemText primary="Developers Profiles" />
       </ListItem>
     </Link>
     <Link to="/my-own-posts">
@@ -73,7 +70,7 @@ export const mainListItemsAuth = (
         <ListItemIcon>
           <CreatePost />
         </ListItemIcon>
-        <ListItemText primary="Create Post" />
+        <ListItemText primary="Your Posts" />
       </ListItem>
     </Link>
 

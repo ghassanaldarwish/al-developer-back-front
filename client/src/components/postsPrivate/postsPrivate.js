@@ -23,6 +23,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import classNames from "classnames";
 import Button from "@material-ui/core/Button";
+import Chip from "@material-ui/core/Chip";
 const isEmpty = value =>
   value === undefined ||
   value === null ||
@@ -32,7 +33,8 @@ const isEmpty = value =>
 const styles = theme => ({
   card: {
     width: "100%",
-    marginBottom: theme.spacing.unit * 2
+    marginBottom: theme.spacing.unit * 2,
+    wordWrap: "break-word"
   },
   media: {
     height: 0,
@@ -145,38 +147,12 @@ class posts extends Component {
                 badgeContent={post.comments.length}
                 classes={{ badge: classes.badgeB }}
               >
-                <Button variant="contained">comment</Button>
+                <Button onClick={this.handleExpandClick} variant="contained">
+                  comment
+                </Button>
               </Badge>
             </Link>
-            {/* <IconButton
-              className={classnames(classes.expand, {
-                [classes.expandOpen]: this.state.expanded
-              })}
-              onClick={this.handleExpandClick}
-              aria-expanded={this.state.expanded}
-              aria-label="Show more"
-            >
-              <ExpandMoreIcon />
-            </IconButton> */}
           </CardActions>
-          {/* <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-            <CardContent>
-              <Typography paragraph>Method:</Typography>
-              <Typography paragraph>
-                Heat 1/2 cup of the broth in a pot until simmering,
-              </Typography>
-              <Typography paragraph>
-                Heat oil in a (14- to 16-inch) paella pan or a
-              </Typography>
-              <Typography paragraph>
-                Add rice and stir very gently to distribute. Top with artichokes
-                and peppers, and cook
-              </Typography>
-              <Typography>
-                Set aside off of the heat to let rest for 10
-              </Typography>
-            </CardContent>
-          </Collapse> */}
         </Card>
       ))
     );

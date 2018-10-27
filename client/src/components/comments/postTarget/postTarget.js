@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // import { withRouter, Link } from "react-router-dom";
 // import * as actions from "../../../store/actions";
 import Spinner from "../../UI/Spinner/Spinner";
+import CommentsForm from "../commentForm/commentForm";
 // const isEmpty = value =>
 //   value === undefined ||
 //   value === null ||
@@ -31,6 +32,12 @@ class postTarget extends Component {
             <p class="lead">{this.props.post.post.text}</p>
           </div>
         </div>
+        <CommentsForm
+          {...this.props}
+          onChangeHandler={this.props.onChangeHandler}
+          onSubmit={this.props.onSubmit}
+          comment={this.props.comment}
+        />
       </div>
     );
   }

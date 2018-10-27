@@ -45,13 +45,19 @@ class singlePost extends Component {
       <Spinner />
     ) : (
       <Fragment>
-        <PostTarget {...this.props} />
-        <CommentsForm
+        <PostTarget
           {...this.props}
           onChangeHandler={this.onChangeHandler}
           onSubmit={this.onSubmit}
           comment={this.state.comment}
         />
+        {/* <CommentsForm
+          {...this.props}
+          onChangeHandler={this.onChangeHandler}
+          onSubmit={this.onSubmit}
+          comment={this.state.comment}
+        /> */}
+
         <Comments {...this.props} />
       </Fragment>
     );

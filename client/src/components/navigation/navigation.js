@@ -14,7 +14,8 @@ import IconButton from "@material-ui/core/IconButton";
 
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-
+import { connect } from "react-redux";
+import { Link, withRouter } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import {
   mainListItems,
@@ -164,15 +165,23 @@ class Dashboard extends React.Component {
                   <span style={{ lineHeight: "3.5" }}>
                     {this.props.user.name}
                   </span>
-                  <Avatar
-                    alt="Remy Sharp"
-                    src={
-                      this.props.user
-                        ? this.props.user.avatar
-                        : "https://radio-7.net/wp-content/plugins/wp-first-letter-avatar/images/default/256/mystery.png"
-                    }
-                    className={classes.avatar}
-                  />
+                  <Link
+                    to={`/profile/${
+                      this.props.profile.profile
+                        ? this.props.profile.profile.handle
+                        : null
+                    }`}
+                  >
+                    <Avatar
+                      alt="Remy Sharp"
+                      src={
+                        this.props.user
+                          ? this.props.user.avatar
+                          : "https://radio-7.net/wp-content/plugins/wp-first-letter-avatar/images/default/256/mystery.png"
+                      }
+                      className={classes.avatar}
+                    />
+                  </Link>
                 </div>
               ) : (
                 <Button variant="contained" color="secondary">
@@ -222,4 +231,12 @@ Dashboard.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Dashboard);
+const mapStateToProps = state => {
+  return {
+    profile: state.profile
+  };
+};
+
+export default connect(mapStateToProps)(
+  withRouter(withStyles(styles)(Dashboard))
+);
