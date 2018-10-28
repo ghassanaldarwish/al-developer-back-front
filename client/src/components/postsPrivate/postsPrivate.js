@@ -24,6 +24,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import classNames from "classnames";
 import Button from "@material-ui/core/Button";
 import Chip from "@material-ui/core/Chip";
+import aldevelopeLogo from "../../assets/allogo.png";
 const isEmpty = value =>
   value === undefined ||
   value === null ||
@@ -116,11 +117,11 @@ class posts extends Component {
             title={post.name}
             subheader={<Moment format="YYYY/MM/DD HH:mm">{post.date}</Moment>}
           />
-          {/* <CardMedia
+          <CardMedia
             className={classes.media}
-            image="/static/images/cards/paella.jpg"
+            image={aldevelopeLogo}
             title="Contemplative Reptile"
-          /> */}
+          />
           <CardContent>
             <Typography component="p">{post.text}</Typography>
           </CardContent>
