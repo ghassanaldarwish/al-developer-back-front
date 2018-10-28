@@ -5,25 +5,18 @@ import Moment from "react-moment";
 import * as actions from "../../store/actions";
 import Spinner from "../UI/Spinner/Spinner";
 import { withStyles } from "@material-ui/core/styles";
-import classnames from "classnames";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import red from "@material-ui/core/colors/red";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
 import Badge from "@material-ui/core/Badge";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import classNames from "classnames";
+import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
-import Chip from "@material-ui/core/Chip";
 import aldevelopeLogo from "../../assets/allogo.png";
 const isEmpty = value =>
   value === undefined ||
@@ -32,6 +25,11 @@ const isEmpty = value =>
   (typeof value === "string" && value.trim().length === 0);
 
 const styles = theme => ({
+  root: {
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2
+  },
   card: {
     width: "100%",
     marginBottom: theme.spacing.unit * 2,
@@ -117,14 +115,17 @@ class posts extends Component {
             title={post.name}
             subheader={<Moment format="YYYY/MM/DD HH:mm">{post.date}</Moment>}
           />
-          <CardMedia
-            className={classes.media}
-            image={aldevelopeLogo}
-            title="Contemplative Reptile"
-          />
+
           <CardContent>
             <Typography component="p">{post.text}</Typography>
           </CardContent>
+          <Paper className={classes.root}>
+            <CardMedia
+              className={classes.media}
+              image={aldevelopeLogo}
+              title="Contemplative Reptile"
+            />
+          </Paper>
           <CardActions className={classes.actions} disableActionSpacing>
             <IconButton
               onClick={() => this.props.addLike(post._id)}

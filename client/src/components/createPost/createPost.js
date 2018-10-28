@@ -7,6 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
+import CreatePost from "@material-ui/icons/Create";
 
 const isEmpty = value =>
   value === undefined ||
@@ -73,14 +74,16 @@ class post extends Component {
             className={classes.textField}
             margin="normal"
           />
+
           <Button
-            variant="contained"
-            color="primary"
+            variant="fab"
+            aria-label="Add"
+            color="secondary"
             className={classes.button}
             type="submit"
             disabled={isEmpty(this.state.createPost) ? true : false}
           >
-            Post it
+            <CreatePost />
           </Button>
         </form>
       </Paper>
