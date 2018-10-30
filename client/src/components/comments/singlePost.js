@@ -17,7 +17,8 @@ class singlePost extends Component {
     comment: ""
   };
   componentDidMount() {
-    this.props.getPost(this.props.match.params.id);
+    //this.props.getPost(this.props.match.params.id);
+    this.props.getPost(this.props.postId || this.props.match.params.id);
   }
   onChangeHandler = e => {
     this.setState({ comment: e.target.value });
@@ -30,12 +31,16 @@ class singlePost extends Component {
       name: this.props.auth.name,
       avatar: this.props.auth.avatar
     };
-
     this.props.addComment(
-      this.props.match.params.id,
-      commentData,
-      this.props.history
+      this.props.postId || this.props.match.params.id,
+      commentData
     );
+
+    // this.props.addComment(
+    //   this.props.match.params.id,
+    //   commentData,
+    //   this.props.history
+    // );
     this.setState({ comment: "" });
   };
   render() {
@@ -51,12 +56,12 @@ class singlePost extends Component {
           onSubmit={this.onSubmit}
           comment={this.state.comment}
         />
-        {/* <CommentsForm
+        <CommentsForm
           {...this.props}
           onChangeHandler={this.onChangeHandler}
           onSubmit={this.onSubmit}
           comment={this.state.comment}
-        /> */}
+        />
 
         <Comments {...this.props} />
       </Fragment>

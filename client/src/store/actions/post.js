@@ -136,7 +136,7 @@ export const addComment = (postId, commentData, history) => dispatch => {
         payload: res.data
       });
 
-      history.push("/post/" + postId);
+      //  history.push("/post/" + postId);
     })
     .catch(err =>
       dispatch({
