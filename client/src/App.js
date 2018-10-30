@@ -45,17 +45,15 @@ class App extends Component {
                         component={PostsPublic}
                       />
 
-                      <PrivateRoute
-                        path="/dashboard"
-                        exact
-                        component={Dashboard}
-                      />
+                    
 
                       <PrivateRoute
                         path="/posts-private"
                         exact
                         component={PostsPrivate}
                       />
+                      
+                      
                       <PrivateRoute
                         path="/create-profile"
                         exact
@@ -77,6 +75,13 @@ class App extends Component {
                         exact
                         component={Education}
                       />
+
+                        <PrivateRoute
+                        path="/dashboard"
+                        exact
+                        component={Dashboard}
+                      />
+                  
                       <PrivateRoute
                         path="/profiles"
                         exact
