@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/config/dev.js
+/dev.js
 
 # testing
 /coverage
